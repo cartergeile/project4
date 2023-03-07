@@ -2,6 +2,9 @@
 CG's Golf Store will be an online ECommerce Store that will sell every kind of golf club imaginable. 
 
 ## Technologies Used
+- HTML
+- CSS
+- JavaScript
 - Python
 - Django
 - psql
