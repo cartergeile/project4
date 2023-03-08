@@ -26,25 +26,19 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/">Home</a>
-          </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Clubs
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Drivers</a></li>
+              <li><a class="dropdown-item" href="{% url 'category' 'D' %}">Drivers</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Irons</a></li>
+              <li><a class="dropdown-item" href="{% url 'category' 'I' %}">Irons</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Wedges</a></li>
+              <li><a class="dropdown-item" href="{% url 'category' 'W' %}">Wedges</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Putters</a></li>
+              <li><a class="dropdown-item" href="{% url 'category' 'P' %}">Putters</a></li>
             </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About Us</a>
           </li>
           
         </ul>
