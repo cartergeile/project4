@@ -21,10 +21,10 @@ CG's Golf Store will be an online ECommerce Store that will sell every kind of g
 
 
 ## Wireframes
-![wireframes](./images/Wireframes-ECOMM.png)
+![wireframes](./capstone-project//main_app/images/Wireframes-ECOMM.png)
 
 ## ERD
-![erd](./images/ERD-ECOMM.png)
+![erd](./capstone-project/main_app/images/ERD-ECOMM.png)
 
 ## Reach Goals
 - Add a used page where users can upload used clubs for sale

@@ -10,6 +10,7 @@ urlpatterns = [
     path('category/<slug:val>', views.CategoryView.as_view(), name='category'),
     path('category-name/<val>', views.CategoryName.as_view(), name='category-name'),
     path('product-detail/<int:pk>', views.ProductDetail.as_view(), name='product-detail'),
+    path('profile/', views.ProfileView.as_view(), name='profile'),
 
     # login auth
     path('signup', views.CustomerRegistrationView.as_view(), name='signup'),

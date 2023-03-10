@@ -1,8 +1,8 @@
 from django.db.models import Count
 from django.shortcuts import render
 from django.views import View
-from . models import Product
-from . forms import CustomerRegistrationForm
+from . models import Product, Customer
+from . forms import CustomerProfileForm, CustomerRegistrationForm
 from django.contrib import messages
 
 # Create your views here.
@@ -39,3 +39,19 @@ class CustomerRegistrationView(View):
         else:
             messages.warning(request, "Invalid Input Data")
         return render(request, 'main_app/signup.html', locals())
+    
+class ProfileView(View):
+    def get(self, request):
+        form = CustomerProfileForm()
+        return render(request, 'main_app/profile.html', locals())
+    def post(self, request):
+        form = CustomerProfileForm(request.POST)
+        if form.is_valid():
+            user = request.user
+            name = form.cleaned_data['name']
+            reg = Customer(user=user,name=name)
+            reg.save()
+            messages.success(request, "Success!")
+        else:
+            messages.warning(request, "Invalid Input Data")
+        return render(request, 'main_app/profile.html', locals())
