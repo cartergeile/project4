@@ -19,7 +19,7 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-success">
     <div class="container-fluid">
       <a class="navbar-brand" href="/">
-        <img src="{% static 'main_app/images/cglogo3.webp' %}" width="230" height="50"/>
+        <img src="{% static 'main_app/images/cglogo4.webp' %}" width="200" height="50"/>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -54,7 +54,7 @@
           <ul class="dropdown-menu" aria-labelledby="profileDropdown">
             <li><a class="dropdown-item" href="{% url 'profile' %}">Profile</a></li>
             <li><a class="dropdown-item" href="#">Orders</a></li>
-            <li><a class="dropdown-item" href="#">Change Password</a></li>
+            <li><a class="dropdown-item" href="{% url 'passwordchange' %}">Change Password</a></li>
             <li><a class="dropdown-item" href="#">Logout</a></li>
           </ul>
         </li>

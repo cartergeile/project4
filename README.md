@@ -7,8 +7,8 @@ CG's Golf Store will be an online ECommerce Store that will sell every kind of g
 - JavaScript
 - Python
 - Django
-- psql
-- Materialize
+- PostgresQL
+- Bootstrap
 
 ## User Stories
 #### As an User I Want The Ability to:
@@ -21,7 +21,7 @@ CG's Golf Store will be an online ECommerce Store that will sell every kind of g
 
 
 ## Wireframes
-![wireframes](./capstone-project//main_app/images/Wireframes-ECOMM.png)
+![wireframes](./capstone-project/main_app/images/Wireframes-ECOMM.png)
 
 ## ERD
 ![erd](./capstone-project/main_app/images/ERD-ECOMM.png)
