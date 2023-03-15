@@ -6,7 +6,7 @@
   <div class="container">
     <div class="row flex justify-content-between">
       <div class="img2 col-lg-5 mt-5">
-      <img src="{{product.product_image.url}}" class="image cal-xs-6 col-sm-12 col-lg-12 mt-3 text-sm-center w-175 h-75" alt="">
+      <img src="{{product.product_image.url}}" class="image cal-xs-6 col-sm-12 col-lg-12 mt-3 text-sm-center w-175 h-75">
     </div>
     <div class="productdetail col-lg-5">
       <h1 style="font-family: Georgia; font-size: 50px;">{{product.name}}</h1>
@@ -21,7 +21,6 @@
           <button type="submit" class="btn btn-primary shadow px-5 py-2">Add to Cart</button>
         </form>
         <a href="{% url 'checkout' %}" class="btn btn-warning shadow px-5 py-2 ms-4">Buy Now</a>
-      
     </div>
     </div>
   </div>

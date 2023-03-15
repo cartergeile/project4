@@ -3,7 +3,7 @@ from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django.views import View
 import razorpay
-from . models import Cart, Payment, OrderPlaced, Product, Customer
+from . models import Cart, Payment, OrderPlaced, Product, Customer, Wishlist
 from . forms import CustomerProfileForm, CustomerRegistrationForm
 from django.contrib import messages
 from django.db.models import Q
@@ -37,6 +37,7 @@ class CategoryName(View):
 class ProductDetail(View):
     def get(self, request, pk):
         product = Product.objects.get(pk=pk)
+        wishlist = Wishlist.objects.filter(Q(product=product) & Q(user=request.user))
         totalitem = 0
         if request.user.is_authenticated:
             totalitem = len(Cart.objects.filter(user=request.user))
@@ -179,47 +180,6 @@ def orders(request):
     order_placed=OrderPlaced.objects.filter(user=request.user)
     return render(request, 'main_app/orders.html', locals())
 
-def plus_cart(request):
-    if request.method == 'GET':
-        prod_id=request.GET['prod_id']
-        c = Cart.objects.get(Q(product=prod_id) & Q(user=request.user))
-        c.quantity+=1
-        c.save()
-        user = request.user
-        cart = Cart.objects.filter(user=user)
-        amount = 0
-        for p in cart:
-            value = p.quantity * p.product.price
-            amount = amount + value
-        totalamount = amount + 15
-        #print(prod_id)
-        data={
-            'quantity':c.quantity,
-            'amount':amount,
-            'totalamount':totalamount   
-        }
-        return JsonResponse(data)
-    
-def minus_cart(request):
-    if request.method == 'GET':
-        prod_id=request.GET['prod_id']
-        c = Cart.objects.get(Q(product=prod_id) & Q(user=request.user))
-        c.quantity-=1
-        c.save()
-        user = request.user
-        cart = Cart.objects.filter(user=user)
-        amount = 0
-        for p in cart:
-            value = p.quantity * p.product.price
-            amount = amount + value
-        totalamount = amount + 15
-        data={
-            'quantity':c.quantity,
-            'amount':amount,
-            'totalamount':totalamount   
-        }
-        return JsonResponse(data)
-    
 def remove_cart(request):
     if request.method == 'GET':
         prod_id=request.GET['prod_id']
@@ -239,3 +199,10 @@ def remove_cart(request):
         }
         return JsonResponse(data)
     
+def search(request):
+    query = request.GET['search']
+    totalitem = 0
+    if request.user.is_authenticated:
+        totalitem = len(Cart.objects.filter(user=request.user))
+    product = Product.objects.filter(Q(name__icontains=query))
+    return render(request, "main_app/search.html", locals())
